@@ -1,0 +1,48 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link  rel="stylesheet"  type="text/css"    href="{% static 'moviechartapis/main.css' %}">
+    <title>Movie Chart</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+  <script>
+
+       var config = {
+        type: 'bar',
+        data: {
+            datasets: [{
+
+                data: {{ count|safe }},
+                backgroundColor: [
+                '#696969','#808080', '#A9A9A9', '#C0C0C0', '#D3D3D3'
+                ],
+                label: 'Awards'
+                }],
+                labels: {{ Actor|safe }}
+            },
+            options:  {
+                responsive:true
+            }
+           };
+                window.onload = function() {
+                    var ctx = document.getElementById('movie-chart').getContext('2d');
+                    window.myPie = new Chart(ctx,config);
+                };
+    </script>
+
+</head>
+<body>
+
+
+    <div class="moviecontainer">
+            <canvas id="movie-chart">
+
+            </canvas>
+    </div>
+</body>
+
+</html>

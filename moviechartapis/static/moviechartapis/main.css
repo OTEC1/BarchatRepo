@@ -11,3 +11,20 @@ margin-left:auto;
 margin-right:auto;
 
 }
+
+@media screen and (max-width: 768px) {
+
+.moviecontainer{
+width:100%;
+min-width:100%;
+max-width:100%;
+min-height:400px;
+max-height:400px;
+height:400px;
+
+}
+
+#movie-chart{
+width:100%;
+}
+}
